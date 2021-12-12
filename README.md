@@ -14,3 +14,4 @@ Endpoints can be explored using `/api/v1/docs/` or `/api/v1/schema/` (in YAML fo
 - [ ] Add Docker support
 - [ ] Expand post content
 - [ ] Add logging
+- [ ] Tests
