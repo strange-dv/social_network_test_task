@@ -6,12 +6,14 @@ Endpoints can be explored using `/api/v1/docs/` or `/api/v1/schema/` (in YAML fo
 
 ## Deploy 
 * Copy this repo
-* Install requirements
-* Run migrations
-* Start app using `python3 manage.py runserver`
+* Build and Up application: 
+```commandlined
+docker-compose build
+docker-compose up
+```
 
 ## TODO
-- [ ] Add Docker support
+- [x] Add Docker support
 - [ ] Expand post content
 - [ ] Add logging
 - [ ] Tests
