@@ -24,8 +24,9 @@ class PostAnalyticsView(APIView):
             try:
                 from_date = datetime.strptime(from_date, self.DATETIME_FORMAT).date()
             except ValueError:
-                return Response({"details": "date format is not valid, use %Y-%m-%d format"},
-                                400)
+                return Response(
+                    {"details": "date format is not valid, use %Y-%m-%d format"}, 400
+                )
         else:
             from_date = today
 
@@ -33,8 +34,9 @@ class PostAnalyticsView(APIView):
             try:
                 to_date = datetime.strptime(to_date, self.DATETIME_FORMAT).date()
             except ValueError:
-                return Response({"details": "date format is not valid, use %Y-%m-%d format"},
-                                400)
+                return Response(
+                    {"details": "date format is not valid, use %Y-%m-%d format"}, 400
+                )
         else:
             to_date = today
 
@@ -42,7 +44,6 @@ class PostAnalyticsView(APIView):
 
 
 class UserAnalyticsView(APIView):
-
     def get(self, _request, pk=None):
         if not pk:
             raise NotFound("user not found")

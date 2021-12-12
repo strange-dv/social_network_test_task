@@ -44,7 +44,9 @@ def get_stats_for(date):
 def get_stats(from_date, to_date):
     result = {}
 
-    dates = [from_date + timedelta(days=i) for i in range((to_date - from_date).days + 1)]
+    dates = [
+        from_date + timedelta(days=i) for i in range((to_date - from_date).days + 1)
+    ]
 
     for date in dates:
         result[date.strftime("%Y-%m-%d")] = get_stats_for(date)
