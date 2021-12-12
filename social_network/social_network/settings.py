@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # local
     'accounts',
+    'posts',
 
     # third-party
     'django',
