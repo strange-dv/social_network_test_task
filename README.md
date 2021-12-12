@@ -17,3 +17,4 @@ docker-compose up
 - [ ] Expand post content
 - [ ] Add logging
 - [ ] Tests
+- [ ] Migrate from SQLite
