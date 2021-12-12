@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # local
     "accounts",
     "posts",
+    "analytics",
     # third-party
     "django",
     "rest_framework",
@@ -161,3 +162,7 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": datetime.timedelta(minutes=(1000 if DEBUG else 5)),
     "REFRESH_TOKEN_LIFETIME": datetime.timedelta(days=1),
 }
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 0
