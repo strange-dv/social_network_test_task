@@ -4,7 +4,7 @@ from . import models
 from . import forms
 
 
-# @admin.register(models.SocialNetworkUser)
+@admin.register(models.SocialNetworkUser)
 class SocialNetworkUserAdmin(admin.ModelAdmin):
     add_form = forms.SocialNetworkUserCreationForm
     form = forms.SocialNetworkUserChangeForm
