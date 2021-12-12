@@ -1,5 +1,4 @@
-from rest_framework.generics import ListCreateAPIView, \
-    RetrieveUpdateDestroyAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
@@ -27,7 +26,7 @@ class LikePostView(APIView):
         post = models.Post.objects.get(id=pk)
         request.user.like(post)
 
-        return Response({'status': 'ok'})
+        return Response({"status": "ok"})
 
 
 class UnLikePostView(APIView):
@@ -36,4 +35,4 @@ class UnLikePostView(APIView):
     def get(self, request, pk):
         post = models.Post.objects.get(id=pk)
         request.user.unlike(post)
-        return Response({'status': 'ok'})
+        return Response({"status": "ok"})

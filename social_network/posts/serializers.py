@@ -11,6 +11,5 @@ class PostSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return models.Post.objects.create(
-            content=validated_data["content"],
-            creator=self.context["request"].user
+            content=validated_data["content"], creator=self.context["request"].user
         )
