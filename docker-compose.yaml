@@ -11,16 +11,35 @@ services:
     environment:
      - REDIS_REPLICATION_MODE=master
 
+  db:
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=social_network_user
+      - POSTGRES_PASSWORD=social_network_password
+      - POSTGRES_DB=social_network_db
+
   web:
     build: .
-    command: python3 social_network/manage.py runserver 0.0.0.0:8000
+    command: /bin/sh -c "python3 social_network/manage.py migrate 
+                      && python social_network/manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/application
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - REDIS_DB=0
+      - SQL_DATABASE=social_network_db
+      - SQL_USER=social_network_user
+      - SQL_PASSWORD=social_network_password
+      - SQL_HOST=db
+      - SQL_PORT=5432
     ports:
       - "8000:8000"
     depends_on:
       - redis
+      - db
+
+volumes:
+  postgres_data:

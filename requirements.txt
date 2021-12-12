@@ -35,3 +35,4 @@ typing-extensions==4.0.1
 urllib3==1.26.7
 wrapt==1.13.3
 coreapi
+psycopg2-binary==2.9.1

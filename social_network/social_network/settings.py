@@ -90,8 +90,12 @@ WSGI_APPLICATION = "social_network.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
+        "USER": os.getenv("SQL_USER", "user"),
+        "PASSWORD": os.getenv("SQL_PASSWORD", "password"),
+        "HOST": os.getenv("SQL_HOST", "localhost"),
+        "PORT": os.getenv("SQL_PORT", "5432"),
     }
 }
 
